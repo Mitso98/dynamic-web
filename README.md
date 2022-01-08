@@ -1,0 +1,1 @@
+pure javaScript responsive page 
