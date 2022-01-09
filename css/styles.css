@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 ::-webkit-scrollbar {
- 
   width: 12px;
 }
 
@@ -23,7 +22,7 @@
 body {
   font-family: sans-serif;
   color: white;
-  background: rgb(2,0,36);
+  background: rgb(2, 0, 36);
   overflow: hidden;
 }
 
@@ -33,6 +32,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 20;
 }
 ul {
   display: flex;
@@ -63,18 +63,18 @@ main {
   bottom: 0;
   width: 97vw;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
-section{
+section {
   display: flex;
   flex-direction: column;
 }
 
 article {
-
-  padding: 25vh 0;
   max-width: 600px;
   height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 h3.article-title {
@@ -84,4 +84,56 @@ h3.article-title {
 p {
   font-size: small;
   line-height: 30px;
+}
+.active {
+  background-color: rgba(58, 42, 165, 0.2);
+}
+#float-button {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  background-color: white;
+  height: fit-content;
+  color: black;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 20;
+}
+#buble-up {
+  position: relative;
+  left: 40%;
+  bottom: -5%;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(128, 128, 128, 0.5);
+  animation: circle-up 6s linear infinite;
+}
+#buble-down {
+  position: relative;
+  left: 80%;
+  bottom: -15%;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(128, 128, 128, 0.5);
+  animation: circle-down 6s linear infinite;
+}
+
+@keyframes circle-up {
+  0% {
+    transform: rotate(0deg) translate(-50px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translate(-50px) rotate(-360deg);
+  }
+}
+@keyframes circle-down {
+  0% {
+    transform: rotate(360deg) translate(-50px) rotate(-360deg);
+  }
+  100% {
+    transform: rotate(0deg) translate(-50px) rotate(0deg);
+  }
 }
